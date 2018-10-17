@@ -1,0 +1,160 @@
+.card-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 100;
+    padding-bottom: 0 !important;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    transition: all .2s ease-in-out;
+
+    &.active {
+	visibility: visible;
+	opacity: 1;
+    }
+    
+    .card-display {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	height: 80%;
+	width: 90%;
+	max-width: 60rem;
+	background-color: white;
+	border: 4px solid black;
+	padding: 1rem;
+	overflow: hidden;
+	
+	@media (max-width: $mobile-max-width) {
+	    height: 100%;
+	    width: 100%;
+	    border: none;
+	}
+
+	.row {
+	    display: block;
+	    margin-bottom: 1rem;
+	}
+
+	.column {
+	    display: inline-block;
+	}
+	
+	.exit {
+	    display: inline-block;
+	    float: right;
+	    text-decoration: none;
+	    color: #666666;
+	    transition: color .2s ease;
+	    cursor: pointer;
+	    
+	    &:hover {
+		color: black;;
+	    }
+	}
+
+	.title {
+	    display: inline-block;
+	    font-family: $title-font-family;
+	    text-decoration: underline;
+	}
+
+	.separator {
+	    display: inline-block;
+	    margin: 0 .5rem;
+	}
+
+	.price {
+	    display: inline-block;
+	}
+
+	.card-image {
+	    display: inline-block;
+	    margin-right: 1rem;
+	}
+	
+	.description, .full-description {
+	    display: inline-block;
+	}
+
+	.description {
+	    margin-bottom: 1rem;
+	}
+	
+	.full-description {
+	    overflow-y: scroll;
+	}
+    }
+}	      
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+	
+    .image-link {
+	transition: all .2s ease-in-out;
+	position: relative;
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	
+	&:after {
+	    content: "\f002";
+	    opacity: 0;
+	    font-family: "Font Awesome 5 Free";
+	    font-weight: 900;
+	    width: 100%;
+	    display: flex;
+	    position: absolute;
+	    align-items: center;
+	    justify-content: center;
+	    color: white;
+	    font-size: 3rem;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    transition: all 0.3s ease-in-out;
+	}
+	
+	&:hover:after {
+	    content: "\f002";
+	    color: white;
+	    background-color: black;
+	    opacity: 0.6;
+	    font-weight: 900;
+	    font-family: "Font Awesome 5 Free";
+	}
+
+    }
+	
+    .card {
+	border: 4px solid black;
+	background-color: white;
+	padding: 2rem;
+	margin: 1rem;
+	
+	img {
+	    margin-bottom: 1rem;
+	}
+	
+	.title {
+	    font-weight: bold;
+	    margin-bottom: 1rem;
+	    text-decoration: underline;
+	    padding: 0;
+	}
+	
+	.description {
+	    display: flex;
+	}
+    }
+}      

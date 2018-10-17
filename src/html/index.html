@@ -1,0 +1,52 @@
+<!doctype HTML>
+<html>
+  <head>
+    <%= require('html-loader!./components/head.html') %>
+  </head>
+  <body>
+    <%= require('html-loader!./components/nav.html') %>
+    <div class="content">
+      <section>
+	<h4 class="title center">The below items are currently available for purchase <3</h4>
+      </section>
+      <section>
+	<div class="cards" id="cards-container">
+	  <script id="wares-card-template" type="x-tmpl-mustache">
+	    {{#cards}}
+	    <a class="image-link card"
+	       href="#/wares/{{id}}"
+	       onclick="EventHelpers.handleWaresSelection({{id}})"
+	       data-id="{{id}}">
+	      <img src="{{photos.0}}" />
+	      <h3 class="title">{{title}}</h3>
+	      <div class="description">{{short-description}}</div>
+	    </a>
+	    {{/cards}}
+	  </script>
+	</div><!-- end cards -->
+      </section>
+      <section class="card-overlay" id="card-overlay">
+	<script id="wares-card-display-template" type="x-tmpl-mustache">
+	  <div class="row">
+	    <h3 class="title">{{title}}</h3><h3 class="separator">-</h3><h3 class="price">{{price}}</h3>
+	    <h3 class="exit" href="#" onclick="EventHelpers.handleDismissCard()">X</h3>
+	  </div>
+	  <div class="row">
+	    <div class="card-image-container">
+	      {{#photos}}
+	      <img class="card-image" src="{{.}}" />
+	      {{/photos}}
+	    </div>
+	    <div class="column">
+	      <p class="description">{{short-description}}</p>
+	      <p class="full-description">{{description}}</p>
+	    </div>
+	  </div>
+	</script>
+	<div class="card-display" id="wares-card-display">
+
+	</div>
+      </section>
+    </div>
+  </body>
+</html>
